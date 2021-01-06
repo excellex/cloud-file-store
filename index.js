@@ -10,6 +10,7 @@ const authRouter = require('./routes/route.auth')
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.static('/home/user/elbrus/projects/cloudstore/public'))
+app.use(express.static('/home/user/elbrus/projects/cloudstore/public/build'))
 app.use('/api/auth', authRouter)
 
 const listen = async () => {
