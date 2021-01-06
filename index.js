@@ -2,6 +2,7 @@ const express = require('express')
 const app = require('express')()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const fetch = require('node-fetch');
 const path = require('path')
 require('dotenv').config()
 
@@ -30,8 +31,9 @@ const listen = async () => {
     console.log(e);
   }
 }
-// console.log('\n\n\n\n\n\n',app.locals,'\n\n\n\n\n\n');
-
-
 
 listen()
+
+setInterval(() => {
+  fetch('https://myhertestapp.herokuapp.com/')
+}, 15 * 60 * 1000)
