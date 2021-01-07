@@ -4,7 +4,7 @@ import CreateSagaMiddleware from 'redux-saga';
 const sagaMiddleware = CreateSagaMiddleware()
 
 
-export const store = createStore((state = {a: 'A'}, action) => {
+export const store = createStore((state = {a: {a: 'A'}}, action) => {
   switch (action.type) {
     case 'ADD_':
       return { ...state, b: action.payload }
