@@ -4,11 +4,14 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const fetch = require('node-fetch');
 const path = require('path')
+const cors = require('cors')
 require('dotenv').config()
 
 const authRouter = require('./routes/route.auth')
 const indexRouter = require('./routes/route.index')
 // const app = express()
+
+app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json())
 // app.use(express.static('/home/user/elbrus/projects/cloudstore/public'))

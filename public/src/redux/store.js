@@ -1,17 +1,17 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import CreateSagaMiddleware from 'redux-saga';
-const sagaMiddleware = CreateSagaMiddleware()
+import createSagaMiddleware from 'redux-saga';
+import { fileReducer } from './fileReducer';
+import  mySaga  from './mySaga';
+import { userReducer } from './userReducer';
 
+const saga = createSagaMiddleware()
 
-export const store = createStore((state = {a: {a: 'A'}}, action) => {
-  switch (action.type) {
-    case 'ADD_':
-      return { ...state, b: action.payload }
-    default:
-      return state
-  }
-},
-  composeWithDevTools(applyMiddleware(sagaMiddleware)))
+const rootReducer = combineReducers({
+  user: userReducer,
+  files: fileReducer
+})
 
-// sagaMiddleware.run(mySaga)
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(saga)))
+
+saga.run(mySaga)
