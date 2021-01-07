@@ -34,6 +34,6 @@ const listen = async () => {
 
 listen()
 
-// setInterval(() => {
-//   fetch('https://myhertestapp.herokuapp.com/')
-// }, 15 * 60 * 1000)
+setInterval(() => {
+  fetch('https://myhertestapp.herokuapp.com/')
+}, 15 * 60 * 1000)
