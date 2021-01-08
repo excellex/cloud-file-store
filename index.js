@@ -9,12 +9,10 @@ require('dotenv').config()
 
 const authRouter = require('./routes/route.auth')
 const indexRouter = require('./routes/route.index')
-// const app = express()
 
-// app.use(cors())
+app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json())
-// app.use(express.static('/home/user/elbrus/projects/cloudstore/public'))
 app.use(express.static(path.join(__dirname, 'public', 'build')))
 
 

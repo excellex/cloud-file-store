@@ -10,12 +10,12 @@ function Signin(props) {
   const dispatch = useDispatch()
 
   return (
-      <div className='registration'>
-          <div className="registration__header">Авторизация</div>
-          <Input value={email} setValue={setEmail} type="text" placeholder="Введите email..."/>
-          <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."/>
-          <button className="registration__btn" onClick={() => dispatch(fetchUserAC({email, password}))}>Войти</button>
-      </div>
+    <div className='registration'>
+      <div className="registration__header">Авторизация</div>
+      <Input value={email} setValue={setEmail} type="text" placeholder="Введите email..." />
+      <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..." />
+      <button className="registration__btn" onClick={() => dispatch(fetchUserAC({ email, password }))}>Войти</button>
+    </div>
   );
 }
 

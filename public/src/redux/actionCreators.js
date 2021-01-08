@@ -17,7 +17,6 @@ export const fetchUserAC = (payload) => {
 }
 
 export const authUserAC = () => {
-  console.log('authUserAC');
   return ({
     type: AUTH_USER
   })
