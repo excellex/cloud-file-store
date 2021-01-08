@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import './App.css'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Signup from "./components/Signup/Signup";
+import Signin from "./components/Signin/Signin";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
               <div className="wrap">
                   <Switch>
                       <Route path="/signup" component={Signup}/>
+                      <Route path="/signin" component={Signin}/>
                   </Switch>
               </div>
           </div>

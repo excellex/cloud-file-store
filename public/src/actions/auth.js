@@ -1,10 +1,10 @@
-import { signUpURL } from '../utils/fetchURL'
+import { signUpURL, signInURL } from '../utils/fetchURL'
 import { apiPost } from '../utils/fetcher';
+import { setUserAC } from '../redux/actionCreators';
 
 export const signup = async (email, password) => {
 
   try {
-    console.log(signUpURL);
     apiPost(signUpURL, { email, password })
 
       .then(data => console.log((data)))
@@ -13,20 +13,17 @@ export const signup = async (email, password) => {
   } catch (e) {
 
   }
-  // try {
-  //   const response = await fetch(signUpURL, {
-  //     method: 'POST', // или 'PUT'
-  //     headers: {
-  //       // cors: 'no-cors',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({ email, password }), // данные могут быть 'строкой' или {объектом}!
-  //   });
-  //   const json = await response.json();
-  //   console.log('Успех:', JSON.stringify(json));
-  // } catch (error) {
-  //   console.log('Ошибка:', error);
-  // }
+}
 
+export const signin = async (email, password) => {
 
+try {
+  await apiPost(signInURL, { email, password })
+
+    // .then(data => console.log((data)))
+    // .then(user => disptatch(SetUserAC(user)))
+    .catch(e => console.error(e.message)); // for not found
+} catch (e) {
+
+}
 }

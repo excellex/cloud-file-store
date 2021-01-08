@@ -1,7 +1,14 @@
-import { ACT } from './actionTypes';
+import { SET_USER, FETCH_USER } from './actionTypes';
 
-export const AC = (payload) => ({
-    type: ACT,
-    payload
+export const setUserAC = (payload) => ({
+  type: SET_USER,
+  payload
 });
 
+export const fetchUserAC = (payload) => {
+  console.log(payload);
+  return ({
+    type: FETCH_USER,
+    payload
+  })
+}
