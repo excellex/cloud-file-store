@@ -7,4 +7,9 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'build', 'index.html'))
 })
 
+router.get('/:id', (req, res) => {
+  // res.status(200)
+  res.sendFile(path.join(__dirname, '..', 'public', 'build', 'index.html'))
+})
+
 module.exports = router
