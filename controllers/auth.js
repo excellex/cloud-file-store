@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
 const User = require('../models/user')
-
+const authmiddleware = require('../middleware/auth.middleware')
 const saltRounds = 10;
 
 module.exports.signUp = async (req, res) => {
@@ -55,6 +55,27 @@ module.exports.signIn = async (req, res) => {
       }
     })
 
+  } catch (e) {
+    res.send({ message: 'Server error' })
+  }
+}
+
+module.exports.auth = async (req, res) => {
+  console.log(req.body);
+  try {
+   const user = await User.findOne({id: req.user.id})
+   const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: '1d' })
+   return res.json({
+     token,
+     user: {
+       id: user.id,
+       email: user.email,
+       diskSpace: user.diskSpace,
+       usedSpace: user.usedSpace,
+       avatar: user.avatar,
+       // files: [{ type: Types.ObjectId, ref: 'File' }]
+     }
+   })
 
   } catch (e) {
     res.send({ message: 'Server error' })

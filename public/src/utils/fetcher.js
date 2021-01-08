@@ -1,5 +1,5 @@
-export async function apiGet(url) {
-  return await (await fetch(url)).json();
+export async function apiGet(url, param) {
+  return await (await fetch(url, param)).json();
 }
 
 

@@ -2,7 +2,9 @@ const router = require('express').Router()
 const { check } = require('express-validator')
 const controller = require('../controllers/auth')
 // const signUpCheck = require('../middleware/signUpCheck')
+const authmiddleware = require('../middleware/auth.middleware')
 
+router.get('/auth', authmiddleware, controller.auth)
 
 router.post('/signup',
   /*
