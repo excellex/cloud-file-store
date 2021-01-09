@@ -7,7 +7,6 @@ class FileService {
 
   createDir(file) {
     const filePath = `${process.env.STOREPATH}/${file.user}/${file.path}`
-    console.log(filePath);
     return new Promise((resolve, reject) => {
       try {
         if (!fs.existsSync(filePath)) {

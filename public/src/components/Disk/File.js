@@ -1,11 +1,7 @@
 import React from 'react';
 
-function File(props) {
-  return (
-    <div>
-      
-    </div>
-  );
+function File({}) {
+
 }
 
 export default File;

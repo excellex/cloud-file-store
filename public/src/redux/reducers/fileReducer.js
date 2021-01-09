@@ -6,6 +6,7 @@ const defaultState = {
 }
 
 export const fileReducer = (state = defaultState, action) => {
+
   switch (action.type) {
     case SET_FILES:
       return { ...state, files: action.payload }

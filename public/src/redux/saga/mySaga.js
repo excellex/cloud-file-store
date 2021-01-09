@@ -13,9 +13,10 @@ function* authWorker() {
   const user = yield call(auth, null);
   yield put(setUserAC(user))
 };
+
 function* fileWorker(action) {
-  const files = yield call(listFiles, action.payload);
-  yield put(setFilesAC(files))
+  const  state = yield call(listFiles, action.payload);
+  yield put(setFilesAC(state.files))
 };
 function* watcher() {
   yield takeEvery(FETCH_USER, signWorker)
