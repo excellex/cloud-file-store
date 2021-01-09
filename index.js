@@ -8,6 +8,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const authRouter = require('./routes/route.auth')
+const fileRouter = require('./routes/route.file')
 const indexRouter = require('./routes/route.index')
 
 app.use(cors())
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public', 'build')))
 
 app.use('/', indexRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/file', fileRouter)
 
 const listen = async () => {
   try {

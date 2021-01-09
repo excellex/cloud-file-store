@@ -1,4 +1,12 @@
-import { SET_USER, FETCH_USER, LOGOUT, AUTH_USER } from './actionTypes';
+import {
+  SET_USER,
+  FETCH_USER,
+  LOGOUT,
+  AUTH_USER,
+  SET_FILES,
+  SET_CURRENT_DIR,
+  FETCH_FILES
+} from './reducers/actionTypes';
 
 export const setUserAC = (payload) => ({
   type: SET_USER,
@@ -21,3 +29,18 @@ export const authUserAC = () => {
     type: AUTH_USER
   })
 }
+
+export const setFilesAC = (payload) => ({
+  type: SET_FILES,
+  payload
+});
+
+export const fetchFilesAC = (payload) => ({
+  type: FETCH_FILES,
+  payload
+});
+
+export const setCurrentDirAC = (payload) => ({
+  type: SET_CURRENT_DIR,
+  payload
+});

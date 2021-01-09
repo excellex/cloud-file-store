@@ -2,16 +2,17 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 const User = require('../models/user')
+const File = require('../models/file')
+const fileService = require('../services/fileService')
 
 const saltRounds = 10;
 
 module.exports.signUp = async (req, res) => {
-
   try {
     const errors = validationResult(req)
-
+    
     if (!errors.isEmpty()) {
-      return res.status(400).json({ message: 'Uncorrect request', errors })
+      return res.status(400).json({  errors })
     }
 
     const { email, password } = req.body;
@@ -27,6 +28,7 @@ module.exports.signUp = async (req, res) => {
     })
 
     user.save()
+    await fileService.createDir(new File({user: user._id, name: user._id}))
     res.json({ message: 'User has been created' })
   } catch (e) {
     res.send({ message: 'Server error' })

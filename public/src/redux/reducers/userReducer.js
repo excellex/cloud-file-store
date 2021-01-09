@@ -11,7 +11,7 @@ export const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         currentUser: action.payload,
-        isAuth: action.payload.success
+        isAuth: !!action.payload?.success
       }
     case LOGOUT:
       localStorage.removeItem('token')

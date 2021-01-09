@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Input from '../../utils/Input/Input';
-import { signin } from '../../actions/auth';
-import { fetchUserAC } from '../../redux/actionCreators';
+import Input from '../../../utils/Input/Input';
+import { fetchUserAC } from '../../../redux/actionCreators';
 
-function Signin(props) {
+function Signin() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
