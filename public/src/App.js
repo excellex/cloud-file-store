@@ -8,6 +8,7 @@ import Signin from "./components/Auth/Signin/Signin";
 import { useDispatch, useSelector } from 'react-redux';
 import { authUserAC } from './redux/actionCreators';
 import Disk from './components/Disk/Disk';
+import Login from './components/Auth/Signin/Signin';
 
 function App() {
   const dispatch = useDispatch()
@@ -31,7 +32,10 @@ function App() {
             :
             <Switch>
               <Route path="/signin" component={Signin} />
-              <Route path="/signup" component={Signup} />
+              {true ?
+                 <Route path="/signup" component={Signup} /> 
+                :
+                'false'}
               <Redirect to='/signin' />
             </Switch>
 

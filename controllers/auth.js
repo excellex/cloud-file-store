@@ -29,7 +29,7 @@ module.exports.signUp = async (req, res) => {
 
     user.save()
     await fileService.createDir(new File({user: user._id, name: user._id}))
-    res.json({ message: 'User has been created' })
+    res.json({ success: true, message: 'User has been created' })
   } catch (e) {
     res.send({ message: 'Server error' })
   }

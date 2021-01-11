@@ -1,8 +1,9 @@
-import { SET_CURRENT_DIR, SET_FILES } from "./actionTypes";
+import { SET_CURRENT_DIR, SET_FILES, SET_PARENT_DIR } from "./actionTypes";
 
 const defaultState = {
   files: [],
-  currentDir: null
+  currentDir: null,
+  parentDir: null
 }
 
 export const fileReducer = (state = defaultState, action) => {
@@ -13,7 +14,10 @@ export const fileReducer = (state = defaultState, action) => {
 
     case SET_CURRENT_DIR:
       return { ...state, currentDir: action.payload }
-      
+
+    case SET_PARENT_DIR:
+      return { ...state, parentDir: action.payload }
+
     default:
       return state;
   }
