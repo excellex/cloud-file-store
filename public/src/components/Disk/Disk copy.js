@@ -13,7 +13,7 @@ function Disk() {
     <div>
       <ul>
         {currentDir && <li onClick={() => dispatch(setCurrentDirAC(null))}>Up..</li>}
-        {files?.map(file => <FileList key={file._id} file={file} />)}
+        {files?.map(file => <FileList key={uuidv4()} file={file} />)}
       </ul>
     </div>
   );
