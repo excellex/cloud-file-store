@@ -21,6 +21,8 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 440,
+    width: '100%',
+
   },
 });
 

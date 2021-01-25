@@ -13,7 +13,6 @@ import Login from './components/Auth/Signin/Signin';
 import StickyHeadTable from './components/Disk/Table';
 
 function App() {
-  console.log(uuidv4());
   const dispatch = useDispatch()
   const isAuth = useSelector(store => store.user.isAuth)
 

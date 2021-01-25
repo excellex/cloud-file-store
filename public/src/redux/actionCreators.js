@@ -7,7 +7,9 @@ import {
   SET_CURRENT_DIR,
   FETCH_FILES,
   SET_PARENT_DIR,
-  SET_PROPERTIES
+  SET_PROPERTIES,
+  SET_HISTORY,
+  UPDATE_HISTORY
 } from './reducers/actionTypes';
 
 export const setUserAC = (payload) => ({
@@ -52,7 +54,17 @@ export const setParentDirAC = (payload) => ({
   payload
 });
 
-export const setPropertiesAC = (payload) => ({
-  type: SET_PROPERTIES,
+export const setHistoryAC = (payload) => ({
+  type: SET_HISTORY,
   payload
 });
+
+export const updateHistoryAC = (payload) => ({
+  type: UPDATE_HISTORY,
+  payload
+});
+
+// export const setPropertiesAC = (payload) => ({
+//   type: SET_PROPERTIES,
+//   payload
+// });

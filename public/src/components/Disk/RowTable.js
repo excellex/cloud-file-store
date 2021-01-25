@@ -11,7 +11,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
 import { FileCopy, Folder, InsertDriveFile } from '@material-ui/icons';
-import { fetchFilesAC, setCurrentDirAC, setParentDirAC } from '../../redux/actionCreators';
+import { fetchFilesAC, setCurrentDirAC, setHistoryAC, setParentDirAC, updateHistoryAC } from '../../redux/actionCreators';
 import CellTable from './CellTable';
 
 
@@ -26,36 +26,41 @@ const useStyles = makeStyles({
 
 const bringing = (value) => {
   switch (value) {
+
     case 'dir':
       return <Folder />
-
 
     default:
       return <InsertDriveFile />
   }
-} 
+}
 
 function RowTable({ props }) {
   const dispatch = useDispatch()
-  const { files, currentDir, parentDir } = useSelector(store => store.files)
+  const { files, currentDir, parentDir, history } = useSelector(store => store.files)
   const { file, properties, setCurrentDirName } = props
   const { name } = file
-  
+  const pathhistory = history?.slice()
   let _id
   name === '..' ? _id = parentDir : _id = file._id
-  console.log('name',name,'_id', _id);
-  
-  const setCurrentDirHandler = () => {
 
+  const setCurrentDirHandler = (e) => {
     setCurrentDirName(name)
-    console.log(_id);
-    dispatch(setCurrentDirAC(_id))
-    dispatch(setParentDirAC(currentDir))
+    if (name === '..') {
+      dispatch(setCurrentDirAC(pathhistory && pathhistory?.splice(-1,1)) || null)
+      // dispatch(updateHistoryAC(pathhistory || []))
+
+    } else {
+      dispatch(setHistoryAC(currentDir))
+      dispatch(setCurrentDirAC(_id))
+    }
+    // dispatch(setParentDirAC(currentDir))
 
   }
 
   return (
     <>
+    {/* {history.map(el=> <span>{el}; </span>)} */}
       <TableRow hover role="checkbox" tabIndex={-1} key={uuidv4()} onClick={setCurrentDirHandler}>
         {properties?.map((property) => {
           let value = file[property];
