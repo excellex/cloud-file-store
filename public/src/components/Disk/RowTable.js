@@ -11,7 +11,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
 import { FileCopy, Folder, InsertDriveFile } from '@material-ui/icons';
-import { fetchFilesAC, setCurrentDirAC, setHistoryAC, setParentDirAC, updateHistoryAC } from '../../redux/actionCreators';
+import { fetchFilesAC, setCurrentDirAC, setHistoryAC, setParentDirAC, updateHistoryAC } from '../../redux/actions';
 import CellTable from './CellTable';
 
 

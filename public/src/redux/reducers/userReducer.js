@@ -1,4 +1,4 @@
-import { LOGOUT, SET_USER } from "./actionTypes";
+import { LOGOUT, SET_USER } from "../types";
 
 const defaultState = {
   currentUser: {},

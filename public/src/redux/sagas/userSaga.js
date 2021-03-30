@@ -1,8 +1,8 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
-import { setUserAC, authUserAC, setFilesAC, setPropertiesAC } from '../actionCreators';
+import { setUserAC, authUserAC, setFilesAC, setPropertiesAC } from '../actions';
 import { auth, signin } from '../../actions/auth';
 import { listFiles } from '../../actions/listFiles';
-import { AUTH_USER, FETCH_FILES, FETCH_USER, SET_PROPERTIES } from '../reducers/actionTypes';
+import { AUTH_USER, FETCH_FILES, FETCH_USER, SET_PROPERTIES } from '../types';
 
 
 function* signWorker(action) {
@@ -20,14 +20,14 @@ function* fileWorker(action) {
   yield put(setFilesAC(data))
 };
 
-function* watcher() {
+export default function* watcher() {
   yield takeEvery(FETCH_USER, signWorker)
   yield takeEvery(AUTH_USER, authWorker)
   yield takeEvery(FETCH_FILES, fileWorker)
 };
 
-export default function* mySaga() {
-  yield all([
-    watcher()
-  ])
-};
+// export default function* mySaga() {
+//   yield all([
+//     watcher()
+//   ])
+// };

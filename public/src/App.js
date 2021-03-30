@@ -7,7 +7,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Signup from "./components/Auth/Signup/Signup";
 import Signin from "./components/Auth/Signin/Signin";
 import { useDispatch, useSelector } from 'react-redux';
-import { authUserAC } from './redux/actionCreators';
+import { authUserAC } from './redux/actions';
 import Disk from './components/Disk/Disk';
 import Login from './components/Auth/Signin/Signin';
 import StickyHeadTable from './components/Disk/Table';

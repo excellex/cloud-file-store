@@ -1,4 +1,4 @@
-import { SET_CURRENT_DIR, SET_FILES, SET_PARENT_DIR, SET_HISTORY, UPDATE_HISTORY } from "./actionTypes";
+import { SET_CURRENT_DIR, SET_FILES, SET_PARENT_DIR, SET_HISTORY, UPDATE_HISTORY } from "../types";
 
 const defaultState = {
   files: [],

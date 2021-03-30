@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentDirAC, setParentDirAC } from '../../redux/actionCreators';
+import { setCurrentDirAC, setParentDirAC } from '../../redux/actions';
 
 import { Folder, Delete } from '@material-ui/icons/';
 import {

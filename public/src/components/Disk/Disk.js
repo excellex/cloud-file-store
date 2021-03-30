@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import { fetchFilesAC,  setParentDirAC } from '../../redux/actionCreators';
+import { fetchFilesAC,  setParentDirAC } from '../../redux/actions';
 import FileList from './FileList';
 
 const useStyles = makeStyles((theme) => ({

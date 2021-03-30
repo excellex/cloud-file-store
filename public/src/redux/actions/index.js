@@ -10,7 +10,7 @@ import {
   SET_PROPERTIES,
   SET_HISTORY,
   UPDATE_HISTORY
-} from './reducers/actionTypes';
+} from '../types';
 
 export const setUserAC = (payload) => ({
   type: SET_USER,

@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { FileCopy, Folder, InsertDriveFile } from '@material-ui/icons';
-import { fetchFilesAC, setCurrentDirAC, setParentDirAC } from '../../redux/actionCreators';
+import { fetchFilesAC, setCurrentDirAC, setParentDirAC } from '../../redux/actions';
 
 const useStyles = makeStyles({
   root: {
