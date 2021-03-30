@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid'
 import Navbar from "./components/Navbar/Navbar";
-import './App.css'
+// import './App.css'
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Signup from "./components/Auth/Signup/Signup";
 import Signin from "./components/Auth/Signin/Signin";
